@@ -1,3 +1,6 @@
+//creo una funcion para verificar si entra un empleado de la tienda o un cliente
+//mediante un for verifico la clave de seguridad con 3 intentos para colocar correctamente la clave
+
 function user(){
     let usuario = prompt("Tipo de usuario: \n empleado \n cliente ");
     if (usuario == "empleado"){
@@ -24,6 +27,7 @@ function user(){
 };
 
 user();
+//funcion para solicitar al empleado que accion desea hacer, mediante un if llamo a la funcion deseada
 
 function empleado(){
     let accion = prompt("Indique el numero de la accion a realizar: \n 1) cargar venta \n 2) ingresar stock");
@@ -36,6 +40,7 @@ function empleado(){
         accion = prompt("Indique el numero de la accion a realizar: \n 1) cargar venta \n 2) ingresar stock");
     }
 };
+//funcion para solicitar al cliente las opciones que puede realizar, pedir presupuesto de mercaderia o llamar a un asistente
 
 function cliente(){
     let opcion = prompt("Indique el numero de las opciones: \n 1) solicitar presupuesto \n 2) llamar a un asistente");

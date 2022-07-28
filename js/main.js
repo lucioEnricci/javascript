@@ -1,35 +1,56 @@
-let entrada = prompt("Ingrese un pais: ");
+function user(){
+    let usuario = prompt("Tipo de usuario: \n empleado \n cliente ");
+    if (usuario == "empleado"){
+        let clave;
+        for(let i=0;i<=3;i++){
+            clave = prompt("Ingrese la clave:");
+            if (clave == "1234"){
+                console.log("Bienvenido");
+                empleado();
+                break;
+            }else{
+                console.log("Clave erronea, restan "+(3-i)+" intentos");
+            }
+        }     
+    }else if (usuario=="cliente"){
+        let nombre;
+        nombre = prompt("Ingrese su nombre:");
+        console.log("Bienvenido "+nombre);
+        cliente();
+    }else{
+        console.log("valor no valido, ingrese correctamente el tipo de usuario: \n empleado \n cliente");
+        usuario = prompt("Tipo de usuario: \n empleado \n cliente ");
+    }
+};
 
-while (entrada != "esc"){
-    switch(entrada){
-        case "argentina": 
-            alert ("Argentina tiene 15 copas america y es el actual campeon");
-            break;
-        case "brasil": 
-            alert ("Brasil tiene 9 copas america");
-            break;
-        case "uruguay":
-            alert ("Uruguay tiene 15 copas america");
-            break;
-        case "paraguay":
-            alert ("Paraguay tiene 2 copas america");
-            break;
-        case "chile": 
-            alert ("Chile tiene 2 copas america");
-            break;
-        case "peru":
-            alert ("Peru tiene 2 copas america");
-            break;
-        case "colombia":
-            alert ("Colombia tiene 1 copa america");
-            break;
-        case "bolivia":
-            alert ("Bolivia tiene 1 copa america");
-            break;
-        default:
-            alert(entrada + " aun no tiene ninguna copa america");
-            break;
-        }
-        entrada = prompt("Ingrese un pais: ");    
-}
-    
+user();
+
+function empleado(){
+    let accion = prompt("Indique el numero de la accion a realizar: \n 1) cargar venta \n 2) ingresar stock");
+    if (accion == "1"){
+        ventas();
+    }else if (accion == "2"){
+        stock();
+    }else{
+        console.log("valor no valido, ingrese correctamente el tipo de accion: \n 1) cargar venta \n 2) ingresar stock");
+        accion = prompt("Indique el numero de la accion a realizar: \n 1) cargar venta \n 2) ingresar stock");
+    }
+};
+
+function cliente(){
+    let opcion = prompt("Indique el numero de las opciones: \n 1) solicitar presupuesto \n 2) llamar a un asistente");
+    if (opcion == "1"){
+        presupuesto();
+    }else if (opcion == "2"){
+        asistencia();
+    }else{
+        console.log("valor no valido, ingrese correctamente el tipo de opcion: \n 1) solicitar presupuesto \n 2) llamar a un asistente");
+        opcion = prompt("Indique el numero de las opciones: \n 1) solicitar presupuesto \n 2) llamar a un asistente");
+    }
+};
+
+function ventas(){};
+function stock(){};
+function presupuesto(){};
+function asistencia(){};
+

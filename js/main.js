@@ -1,6 +1,8 @@
 //creo una funcion para verificar si entra un empleado de la tienda o un cliente
 //mediante un for verifico la clave de seguridad con 3 intentos para colocar correctamente la clave
-
+let compra=0;
+let presup=0;
+let nombre;
 function user(){
     let usuario = prompt("Tipo de usuario: \n empleado \n cliente ");
     if (usuario == "empleado"){
@@ -16,7 +18,6 @@ function user(){
             }
         }     
     }else if (usuario=="cliente"){
-        let nombre;
         nombre = prompt("Ingrese su nombre:");
         console.log("Bienvenido "+nombre);
         cliente();
@@ -54,8 +55,59 @@ function cliente(){
     }
 };
 
-function ventas(){};
-function stock(){};
-function presupuesto(){};
-function asistencia(){};
+function ventas(){
+    let carrito = parseFloat(prompt("Ingrese el valor del producto:"));
+    while (carrito != "esc"){
+        compra=compra+carrito;
+        console.log("El monto de la compra es de $"+compra);
+        carrito = parseFloat(prompt("Ingrese el valor del producto: \n escriba esc para finalizar."));
+    }
+};
+
+function stock(){
+    let mouse = prompt("Indique la cantidad de mouses en stock:");
+    let teclado = prompt("Indique la cantidad de teclados en stock:");
+    let monitor = prompt("Indique la cantidad de monitores en stock:");
+    let silla = prompt("Indique la cantidad de sillas en stock:");
+    console.log("En stock:\n mouses:"+mouse+"\n teclados:"+teclado+"\n monitores:"+monitor+"\n sillas:"+silla)
+};
+
+
+
+function presupuesto(){
+    let orden = prompt("Ingrese la orden que desea presupuestar: \n mouse \n teclado \n monitor \n silla");
+    while (orden != "esc"){
+        switch (orden){
+            case "mouse":
+                console.log("El mouse tiene un valor de $500");
+                presup=presup+500;
+                break;
+            case "teclado":
+                console.log("El teclado tiene un valor de $1000");
+                presup=presup+1000;
+                break;
+            case "monitor":
+                console.log("El monitor tiene un valor de $5000");
+                presup=presup+5000;
+                break;
+            case "silla":
+                console.log("La silla gamer tiene un valor de $7000");
+                presup=presup+7000;
+                break;
+            case "total":
+                console.log("El presupuesto total es de: $"+presup);
+                break;
+            default:
+                console.log("Ingrese un valor valido.");
+                break;               
+        }orden = prompt("Ingrese la orden que desea presupuestar: \n mouse \n teclado \n monitor \n silla \n total (para ver el presupuesto total) \n esc para salir"); 
+    }
+};
+
+
+function asistencia(){
+    let contacto = prompt("Por favor "+nombre+" dejenos su correo electronico");
+    console.log(nombre+" en instantes un representante se comunicara con usted al siguiente correo:"+contacto);
+
+};
 
